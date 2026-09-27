@@ -1,0 +1,26 @@
+type: tool
+name: read_lines
+description: >-
+  Read raw hidden-document lines in the half-open range [start, end). Line
+  numbers are 0-based. Use this for evidence before finalizing an answer.
+template_override: |-
+  Read raw hidden-document lines in the half-open range [start, end). Line
+  numbers are 0-based. Use this for evidence before finalizing an answer.
+
+  Both start and end are required integer parameters. Never call read_lines with
+  only start. Use end = -1 only when you intentionally need to read to the end
+  of document.md.
+input_schema:
+  type: object
+  properties:
+    start:
+      type: integer
+      description: Start line number, inclusive.
+    end:
+      type: integer
+      description: End line number, exclusive. Use -1 to read to the document end.
+  required:
+    - start
+    - end
+  additionalProperties: false
+  $schema: http://json-schema.org/draft-07/schema#

@@ -1,0 +1,16 @@
+type: tool
+name: scan
+description: >-
+  Build a structured line-range map of the entire hidden document. Call this
+  first for non-trivial documents before grep/read_lines.
+input_schema:
+  type: object
+  properties:
+    chunk_size:
+      type: integer
+      description: Approximate lines per index chunk. Default 100.
+    max_chunks:
+      type: integer
+      description: Maximum number of index chunks. Default 20.
+  additionalProperties: false
+  $schema: http://json-schema.org/draft-07/schema#

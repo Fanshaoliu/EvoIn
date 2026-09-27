@@ -1,0 +1,23 @@
+type: tool
+name: complete_task
+description: >-
+  Submit your final answer and stop. This is the only correct way to finish
+  the task.
+template_override: |-
+  Submit your final answer and stop. This is the only correct way to finish the
+  task.
+
+  The result parameter is required and must be a string. Write the complete final
+  answer in concise plain text or a numbered list; avoid markdown tables. The
+  answer may span multiple lines if that is clearest — pass it as a normal JSON
+  string value. After emitting the complete_task call, stop immediately.
+input_schema:
+  type: object
+  properties:
+    result:
+      type: string
+      description: Final answer to the benchmark question.
+  required:
+    - result
+  additionalProperties: false
+  $schema: http://json-schema.org/draft-07/schema#

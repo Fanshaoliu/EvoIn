@@ -1,0 +1,24 @@
+type: tool
+name: bash
+description: >-
+  Execute a shell command in the per-task workspace containing document.md.
+  Prefer this for arithmetic or aggregation, not for initial exploration.
+template_override: |-
+  Execute a shell command in the per-task workspace containing document.md.
+  Prefer this for arithmetic or aggregation, not for initial exploration. Use
+  bash only after simpler scan/grep/read_lines evidence gathering is
+  insufficient. Example command:
+  python3 -c "from pathlib import Path; print(len(Path('document.md').read_text(encoding='utf-8').splitlines()))"
+input_schema:
+  type: object
+  properties:
+    command:
+      type: string
+      description: Shell command to run.
+    timeout:
+      type: integer
+      description: Timeout in seconds. Default 120.
+  required:
+    - command
+  additionalProperties: false
+  $schema: http://json-schema.org/draft-07/schema#

@@ -1,0 +1,26 @@
+type: tool
+name: notepad
+description: >-
+  Persistent scratchpad shared across tool rounds. Use write to save key
+  findings and read to recall them later.
+template_override: |-
+  Persistent scratchpad shared across tool rounds. Use action=write to save key
+  findings (include line references) and action=read to recall them later. The
+  content parameter is required when action=write. Keep notes compact; do not
+  store the whole document.
+input_schema:
+  type: object
+  properties:
+    action:
+      type: string
+      enum:
+        - write
+        - read
+      description: Whether to write or read the notepad.
+    content:
+      type: string
+      description: Content to save when action is write.
+  required:
+    - action
+  additionalProperties: false
+  $schema: http://json-schema.org/draft-07/schema#

@@ -1,0 +1,29 @@
+type: tool
+name: grep
+description: >-
+  Search the hidden document by substring or regex. Returns all matching line
+  numbers plus previews. Use read_lines to inspect exact evidence.
+template_override: |-
+  Search the hidden document by substring or regex. Returns all matching line
+  numbers plus previews. Use read_lines to inspect exact evidence.
+
+  For regex searches, keep the pattern short and plain. If a regex becomes
+  complex, use several simple grep calls instead of one fragile pattern. For
+  multiple alternative keywords, prefer several simple grep calls unless the
+  regex is very short (e.g. "refund|return|exchange" with use_regex=true).
+input_schema:
+  type: object
+  properties:
+    pattern:
+      type: string
+      description: Substring or regex pattern to search for.
+    use_regex:
+      type: boolean
+      description: Treat pattern as a regular expression. Default false.
+    context_lines:
+      type: integer
+      description: Number of surrounding lines to preview. Default 1.
+  required:
+    - pattern
+  additionalProperties: false
+  $schema: http://json-schema.org/draft-07/schema#
