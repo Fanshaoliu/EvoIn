@@ -106,8 +106,7 @@ This repository contains the algorithmic framework of the two agent-driven parts
 Procedure internalization (supervised fine-tuning under the original harness) uses a standard
 SFT recipe described in the paper appendix and is not part of this release. The framework
 ships no model client: every model-dependent step receives a callable (see
-[Model roles](#model-roles)). The anonymous version prepared for review is kept on the
-[`for_review`](../../tree/for_review) branch.
+[Model roles](#model-roles)).
 
 ## Pipeline
 
